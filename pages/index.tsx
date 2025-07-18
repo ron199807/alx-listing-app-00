@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Card from '../components/common/Card';
 import Button from '../components/common/Button';
 import { DEFAULT_IMAGE } from '../constants';
+import { Header } from '@/components/layout/Header';
 
 const Home: NextPage = () => {
   const sampleListing = {
@@ -14,6 +15,7 @@ const Home: NextPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
+      <Header />
       <h1 className="text-3xl font-bold mb-8">Available Listings</h1>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
