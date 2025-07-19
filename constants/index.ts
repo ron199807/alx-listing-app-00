@@ -368,3 +368,14 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     discount: ""
   }
 ];
+
+export const FILTERS = [
+  "Top Villa",
+  "Self Checkin",
+  "Luxury",
+  "Mountain View",
+  "Beachfront",
+  "Pool",
+  "Free Parking",
+  "Pet Friendly"
+];

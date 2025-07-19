@@ -37,3 +37,13 @@ export interface PropertyProps {
   image: string;
   discount: string;
 }
+
+export interface PillProps {
+  label: string;
+  active?: boolean;
+  onClick?: () => void;
+}
+
+export interface LayoutProps {
+  children: React.ReactNode;
+}

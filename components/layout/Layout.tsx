@@ -1,9 +1,15 @@
-import { ReactNode } from "react";
+import { Header } from "./Header";
+import { Footer } from "./Footer";
+import { LayoutProps } from "@/interfaces"
 
-interface PageLayoutProps {
-  children: ReactNode;
+const Layout = ({ children }: LayoutProps) => {
+  return (
+    <>
+      <Header />
+      <main className="min-h-screen">{children}</main>
+      <Footer />
+    </>
+  );
 }
 
-export const PageLayout = ({ children }: PageLayoutProps) => {
-  return <div className="w-screen container mx-auto">{children}</div>;
-};
+export default Layout;
