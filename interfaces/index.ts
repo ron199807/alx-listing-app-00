@@ -8,10 +8,13 @@ export interface ButtonProps {
 
 export interface CardProps {
   title: string;
-  description: string;
-  imageUrl: string;
+  location: string;
   price: number;
   rating: number;
+  beds: number;
+  baths: number;
+  guests: number;
+  amenities?: string[];
   onClick?: () => void;
 }
 

@@ -3,18 +3,7 @@ import HOUSE_IMAGE from "@/public/assets/images/house.png";
 import STAR_IMAGE from "@/public/assets/images/star.png";
 import React from "react";
 import Pill from "../layout/Pill";
-
-interface CardProps {
-  title: string;
-  location: string;
-  price: number;
-  rating: number;
-  beds: number;
-  baths: number;
-  guests: number;
-  amenities?: string[];
-  onClick?: () => void;
-}
+import { CardProps } from "@/interfaces";
 
 const Card: React.FC<CardProps> = ({
   title,
@@ -29,18 +18,19 @@ const Card: React.FC<CardProps> = ({
 }) => {
   return (
     <div 
-      className="h-[422px] w-[378.56px] cursor-pointer hover:shadow-md hover:rounded-lg p-4 bg-white transition-all"
+      className="cursor-pointer hover:shadow-md hover:rounded-lg p-4 bg-white transition-all flex-1 min-w-[280px] max-w-full sm:max-w-[calc(50%-16px)] lg:max-w-[calc(33.333%-16px)]"
       onClick={onClick}
     >
-      <Image 
-        className="rounded-lg" 
-        src={HOUSE_IMAGE} 
-        width={378.56} 
-        height={299.37} 
-        alt="house image" 
-      />
+      <div className="relative w-full h-0 pb-[79%]">
+        <Image 
+          className="rounded-lg absolute top-0 left-0 w-full h-full object-cover" 
+          src={HOUSE_IMAGE} 
+          fill
+          alt="house image" 
+        />
+      </div>
       
-      <div className="p-2 flex gap-2 mt-2">
+      <div className="p-2 flex gap-2 mt-2 flex-wrap">
         {amenities.map((amenity, index) => (
           <Pill key={index} label={amenity} />
         ))}
@@ -48,12 +38,12 @@ const Card: React.FC<CardProps> = ({
       
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="font-semibold text-[22px]">{title}</h3>
-          <p className="font-medium text-[17px] text-[#929292]">{location}</p>
+          <h3 className="font-semibold text-lg sm:text-[22px]">{title}</h3>
+          <p className="font-medium text-base sm:text-[17px] text-[#929292]">{location}</p>
         </div>
         <div className="flex items-center">
           <Image src={STAR_IMAGE} alt="star" width={16} height={16} />
-          <p className="font-medium text-[17px] ml-2">{rating}</p>
+          <p className="font-medium text-base sm:text-[17px] ml-2">{rating}</p>
         </div>
       </div>
 
@@ -87,9 +77,9 @@ const Card: React.FC<CardProps> = ({
             <p className="ml-1 text-[12.95px] font-medium">{guests}</p>
           </div>
         </div>
-        <p className="text-[22px] font-semibold">
+        <p className="text-lg sm:text-[22px] font-semibold">
           ${price.toLocaleString()}
-          <span className="text-[14px] text-[#787878]">/n</span>
+          <span className="text-sm sm:text-[14px] text-[#787878]">/n</span>
         </p>
       </div>
     </div>
